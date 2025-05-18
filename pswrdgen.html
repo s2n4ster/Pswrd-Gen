@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <div class="password-generator">
+            <h1 data-i18n="title">Генератор Паролей</h1>
+            <div class="password-display">
+                <input type="text" id="password" readonly>
+                <button id="copy-btn" data-i18n="copy">Копировать</button>
+            </div>
+            <div class="settings">
+                <div class="setting">
+                    <label data-i18n="length">Длина пароля</label>
+                    <input type="range" id="length" min="4" max="32" value="12">
+                    <span id="length-value">12</span>
+                </div>
+                <div class="setting">
+                    <label data-i18n="numbers">Включить цифры</label>
+                    <input type="checkbox" id="numbers" checked>
+                </div>
+                <div class="setting">
+                    <label data-i18n="symbols">Включить символы</label>
+                    <input type="checkbox" id="symbols" checked>
+                </div>
+                <div class="setting">
+                    <label data-i18n="uppercase">Включить заглавные буквы</label>
+                    <input type="checkbox" id="uppercase" checked>
+                </div>
+            </div>
+            <button id="generate-btn" data-i18n="generate">Сгенерировать</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
