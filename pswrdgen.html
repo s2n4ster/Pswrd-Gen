@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -17,7 +18,18 @@
             <h1 data-i18n="title">Генератор Паролей</h1>
             <div class="password-display">
                 <input type="text" id="password" readonly>
-                <button id="copy-btn" data-i18n="copy">Копировать</button>
+                <button id="copy-btn" data-i18n="copy">
+                    <i class="fas fa-copy"></i>
+                </button>
+                <button id="refresh-btn" data-i18n="refresh">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            <div class="password-strength">
+                <div class="strength-meter">
+                    <div class="strength-bar"></div>
+                </div>
+                <span id="strength-text" data-i18n="strength">Надежность: </span>
             </div>
             <div class="settings">
                 <div class="setting">
@@ -37,10 +49,28 @@
                     <label data-i18n="uppercase">Включить заглавные буквы</label>
                     <input type="checkbox" id="uppercase" checked>
                 </div>
+                <div class="setting">
+                    <label data-i18n="similar">Исключить похожие символы</label>
+                    <input type="checkbox" id="similar">
+                </div>
+                <div class="setting">
+                    <label data-i18n="ambiguous">Исключить неоднозначные символы</label>
+                    <input type="checkbox" id="ambiguous">
+                </div>
+            </div>
+            <div class="presets">
+                <button class="preset-btn" data-preset="memorable" data-i18n="memorable">Запоминаемый</button>
+                <button class="preset-btn" data-preset="strong" data-i18n="strong">Сильный</button>
+                <button class="preset-btn" data-preset="pin" data-i18n="pin">PIN-код</button>
             </div>
             <button id="generate-btn" data-i18n="generate">Сгенерировать</button>
+            <div class="history">
+                <h3 data-i18n="history">История паролей</h3>
+                <div id="password-history"></div>
+            </div>
         </div>
     </div>
+    <div class="toast" id="toast"></div>
     <script src="script.js"></script>
 </body>
 </html> 
